@@ -2,9 +2,9 @@ define(['avalon', "text!./Index.html", 'jquery', 'pagination', 'Request'], funct
     avalon.templateCache.index = index;
     var Index = avalon.define({
         $id: "Index",
-        items: [{"title": '111111', "created": '2016-03-02'},{"title": '22222', "created": '2016-03-02'}]
+        items: []
     });
-   avalon.vmodels.main.Page = "index"
+   avalon.vmodels.main.Page = "index";
    var r = new Request();
     r.successCallBack = function(data) {
         Index.items = data.data;
