@@ -1,0 +1,242 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "hash": "6c9ff55c9d40b2510ba4cf54731e0efe",
+    "packages": [
+        {
+            "name": "filp/whoops",
+            "version": "1.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/filp/whoops.git",
+                "reference": "72538eeb70bbfb11964412a3d098d109efd012f7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/filp/whoops/zipball/72538eeb70bbfb11964412a3d098d109efd012f7",
+                "reference": "72538eeb70bbfb11964412a3d098d109efd012f7",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "0.9.*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.2-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Whoops": "src/"
+                },
+                "classmap": [
+                    "src/deprecated"
+                ]
+            },
+            "notification-url": "http://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Filipe Dobreira",
+                    "homepage": "https://github.com/filp",
+                    "role": "Developer"
+                }
+            ],
+            "description": "php error handling for cool kids",
+            "homepage": "https://github.com/filp/whoops",
+            "keywords": [
+                "error",
+                "exception",
+                "handling",
+                "library",
+                "silex-provider",
+                "whoops",
+                "zf2"
+            ],
+            "time": "2015-06-29 05:42:04"
+        },
+        {
+            "name": "josegonzalez/dotenv",
+            "version": "1.2.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/josegonzalez/php-dotenv.git",
+                "reference": "38a38273b7bdbe38ce0106aea373eae7a4f3125e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/josegonzalez/php-dotenv/zipball/38a38273b7bdbe38ce0106aea373eae7a4f3125e",
+                "reference": "38a38273b7bdbe38ce0106aea373eae7a4f3125e",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "satooshi/php-coveralls": "1.*",
+                "squizlabs/php_codesniffer": "2.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "josegonzalez\\Dotenv": [
+                        "src",
+                        "tests"
+                    ]
+                }
+            },
+            "notification-url": "http://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jose Diaz-Gonzalez",
+                    "email": "dotenv@josegonzalez.com",
+                    "homepage": "http://josediazgonzalez.com",
+                    "role": "Maintainer"
+                }
+            ],
+            "description": "dotenv file parsing for PHP",
+            "homepage": "https://github.com/josegonzalez/php-dotenv",
+            "keywords": [
+                "configuration",
+                "dotenv",
+                "php"
+            ],
+            "time": "2016-01-07 07:13:27"
+        },
+        {
+            "name": "snowair/think-dotenv",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/snowair/think-dotenv.git",
+                "reference": "6be232aa57d0ebd36d8feec0da62f12c2221ef1c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/snowair/think-dotenv/zipball/6be232aa57d0ebd36d8feec0da62f12c2221ef1c",
+                "reference": "6be232aa57d0ebd36d8feec0da62f12c2221ef1c",
+                "shasum": ""
+            },
+            "require": {
+                "josegonzalez/dotenv": "^1.0",
+                "snowair/think-hookagent": ">=0.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Snowair\\Dotenv\\": "."
+                },
+                "files": [
+                    "DotEnv.php"
+                ]
+            },
+            "notification-url": "http://packagist.org/downloads/",
+            "license": [
+                "apache"
+            ],
+            "authors": [
+                {
+                    "name": "朱亚杰",
+                    "email": "xcoolcc@gmail.com"
+                }
+            ],
+            "description": "ThinkPHP3.2集成php-dotenv",
+            "time": "2015-12-28 10:27:07"
+        },
+        {
+            "name": "snowair/think-hookagent",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/snowair/think-hookagent.git",
+                "reference": "238b8838b8dcdfedee4bad0b9d5b4e15ab934d1e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/snowair/think-hookagent/zipball/238b8838b8dcdfedee4bad0b9d5b4e15ab934d1e",
+                "reference": "238b8838b8dcdfedee4bad0b9d5b4e15ab934d1e",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Snowair\\Think\\Behavior\\": "."
+                }
+            },
+            "notification-url": "http://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "朱亚杰",
+                    "email": "xcoolcc@gmail.com"
+                }
+            ],
+            "description": "ThinkPHP3.2 composer扩展包开发工具",
+            "time": "2015-09-12 13:26:13"
+        },
+        {
+            "name": "snowair/think-whoops",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/snowair/think-whoops.git",
+                "reference": "ff2ff5fa7c08e255b92d547fe4f6fd72fcab719d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/snowair/think-whoops/zipball/ff2ff5fa7c08e255b92d547fe4f6fd72fcab719d",
+                "reference": "ff2ff5fa7c08e255b92d547fe4f6fd72fcab719d",
+                "shasum": ""
+            },
+            "require": {
+                "filp/whoops": "^1.1",
+                "snowair/think-hookagent": ">=0.4"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "whoops.php"
+                ]
+            },
+            "notification-url": "http://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "朱亚杰",
+                    "email": "xcoolcc@gmail.com"
+                }
+            ],
+            "description": "ThinkPHP3.2 集成Whoops",
+            "time": "2015-09-15 10:48:16"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "dev",
+    "stability-flags": {
+        "snowair/think-dotenv": 20,
+        "snowair/think-whoops": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": {
+        "php": ">=5.3.0"
+    },
+    "platform-dev": []
+}

@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <script src="Js/vendor/require/require.js" data-main="main.js"></script>
+        <style>
+            #menu {
+                float:left;
+                width: 13%;
+                border-right: 1px solid;
+            }
+            #content {
+                float:left;
+                width: 86%;
+                margin: 0 auto;
+            }
+            td {
+                text-align: center;
+            }
+            #Pagination {
+                text-align: right;
+            }
+        </style>
+    </head>
+    <body ms-controller="main">
+        <div id="menu">
+            <ul>
+                <li><a href="#!/Goods">商品管理</a></li>
+                <li><a href="#!/Order">订单管理</a></li>
+            </ul>
+        </div>
+        <div id="content" ms-include-src="Page"></div>
+    </body>
+</html>
+<script>
+
+
+</script>
