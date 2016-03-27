@@ -51,7 +51,7 @@ function createApiResponse ($ret_code, $data = array(), $customDesc = '') {
 
         case '403':
             $ret_msg = 'Forbidden';
-            $description = '鉴权成功，但是该用户没有权';
+            $description = '鉴权成功，但是该用户没有权限';
             break;
 
         case '404':

@@ -1,4 +1,4 @@
 /Application/Runtime/*
 .env
 .idea
-vendor
+vendor/*
