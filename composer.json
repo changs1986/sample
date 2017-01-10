@@ -11,8 +11,11 @@
             "email": "liu21st@gmail.com"
         }
     ],
+    "autoload": {
+        "psr-4": {"NN\\": "src"}
+    },
     "require": {
-        "php": ">=5.3.0",
+        "php": ">=5.5.0",
         "snowair/think-dotenv": "dev-master",
         "snowair/think-whoops": "dev-master",
         "league/container": "^2.2",
