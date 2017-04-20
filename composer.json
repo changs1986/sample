@@ -12,7 +12,7 @@
         }
     ],
     "autoload": {
-        "psr-4": {"NN\\": "src"}
+        "psr-4": {"NN\\": "src/NN/"}
     },
     "require": {
         "php": ">=5.5.0",
@@ -20,6 +20,12 @@
         "snowair/think-whoops": "dev-master",
         "league/container": "^2.2",
         "reactivex/rxphp": "^1.5"
+    },
+     "repositories": {
+        "packagist": {
+            "type": "composer",
+            "url": "https://packagist.phpcomposer.com"
+        }
     },
     "minimum-stability": "dev"
 }

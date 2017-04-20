@@ -1,7 +1,7 @@
 <?php
 namespace NN\Service;
 
-use NN\Interfaces\SmsInterface; 
+use NN\Interfaces\SmsInterface;
 use NN\Logic\ValidateLogic;
 
 class AxjSmsService implements SmsInterface
@@ -16,11 +16,19 @@ class AxjSmsService implements SmsInterface
     public function __construct()
     {
         $this->param  = [
-            'name' => C('SMS_USER'), 
-            'pass' => C('SMS_KEY'), 
-            'subid' => '']; 
+            'name' => C('SMS_USER'),
+            'pass' => C('SMS_KEY'),
+            'subid' => ''];
     }
 
+    /**
+     *  执行发送短信操作
+     *
+     *  @param string|array $phones  手机号码
+     *  @param string       $content 短信内容
+     *
+     *  @return boolean|exception
+     **/
     public function send($phones, $content)
     {
         if (empty($content) || empty($phones)) {
@@ -44,36 +52,29 @@ class AxjSmsService implements SmsInterface
             $this->param['mobiles'] = implode('|', $phones);
             $strParam = $this->genParamString($this->param);
             if ($totalPhoneNums >= self::MAX_GET_NUM) {
-                $response = Http::post($this->apiUrl, $strParam); 
-            }              
-            else
-            {
+                $response = Http::post($this->apiUrl, $strParam);
+            } else {
                 $response = Http::get($this->apiUrl . '?' . $strParam, 60);
             }
         } else if (self::MAX_POST_NUM < $totalPhoneNums ) {
             $phoneChunks = array_chunk($phones, self::MAX_POST_NUM);
-            foreach($phoneChunks as $v)
-            {
+            foreach ($phoneChunks as $v) {
                 $this->param['sendtime'] = date('YmdHis', time());
                 $this->param['mobiles'] = implode('|', $v);
                 $strParam = $this->genParamString($this->param);
-                $response = Http::post($this->apiUrl,  $strParam);         
+                $response = Http::post($this->apiUrl,  $strParam);
             }
         }
-        if (!empty($response)) {
-            if (substr(rtrim($response), -2) == '00') {
-                return true;
-            } else {
-                return false;
-            }
+        if (!empty($response) && substr(rtrim($response), -2) == '00') {
+            return true;
         }
-        return false;
+        return new \Exception('sending sms fail. response '. $response);
     }
 
     /**
      *    需要对特殊字符编码,否则发送会报错
-     *    
-     *    @param array $param
+     *
+     *    @param array $param 参数数组
      *
      *    @return string
      **/

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="chepeng" basedir="." default="phplint">
+    <property name="package" value="${phing.project.name}" override="true" />
+    <fileset dir="./Application" id="checkfiles">
+        <include name="**/*.php" />
+        <exclude name="Runtime/**" />
+        <exclude name="vendor/**" />
+    </fileset>
+    <fileset dir="./src" id="checkfiles2">
+        <include name="**/*.php" />
+    </fileset>
+    <target name="prepare">
+        <echo msg="Making directory output" />
+        <mkdir dir="reports/API" />
+        <mkdir dir="reports/loc" />
+    </target>
+
+    <target name="phplint" description="check errors">
+	<phplint haltOnFailure="true">
+	    <fileset refid="checkfiles" />
+	    <fileset refid="checkfiles2" />
+	</phplint>
+    </target>
+
+    <target name="phpcpd" description="check duplicate code" depends="phplint">
+        <exec command="phpcpd --log-pmd ./reports/pmd-cpd.xml {Application,src} --exclude='Application/Runtime'" />
+    </target>
+
+    <target name="phpdoc" description="API Documentation" depends="prepare,phplint,phpcpd">
+        <exec command="phpdoc -d Application/ -t output/API -i Application/Runtime" />
+         <phploc reportType="csv" reportName="${check.date.time}-report" reportDirectory="reports/loc" countTests="true" pharlocation="../../bin/phploc">
+            <fileset refid="checkfiles" />
+        </phploc>
+    </target>
+
+    <target name="test" description="put it testing">
+        <echo message="pulling source" />
+        <exec command="git pull" />
+        <phingcall target="phplint"></phingcall>
+        <exec command="git checkout phinx.yml" />
+        <echo message="starting migrate" />
+        <exec command="php vendor/bin/phinx migrate -e testing" />
+        <delete file="phinx.yml" />
+        <echo message="All Done!" />
+    </target>
+
+    <target name="online" description="put it online">
+        <echo message="pulling source" />
+        <exec command="git pull" />
+        <phingcall target="phplint"></phingcall>
+        <exec command="git checkout phinx.yml" />
+        <echo message="starting migrate" />
+        <exec command="php vendor/bin/phinx migrate -e production " />
+        <delete file="phinx.yml" />
+        <delete>
+            <fileset dir="Application/Runtime/Cache/Front">
+                <include name="*.php" />
+            </fileset>
+        </delete>
+        <echo message="All Done!" />
+    </target>
+</project>

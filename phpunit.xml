@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<phpunit bootstrap="bootstrap.php">
+    <testsuites>
+        <testsuite name="My Test Suite">
+            <directory>tests</directory>
+        </testsuite>
+    </testsuites>
+    <filter>
+        <whitelist processUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">./src</directory>
+            <directory suffix=".php">./Application/Api</directory>
+            <directory suffix=".php">./Application/Admin</directory>
+            <directory suffix=".php">./Application/Cli</directory>
+            <directory suffix=".php">./Application/Common</directory>
+        </whitelist>
+    </filter>
+    <logging>
+        <log type="coverage-clover" target="reports/coverage.xml"/>
+	<log type="junit" target=“reports/logfile.xml" logIncompleteSkipped="false"/>
+    </logging>
+</phpunit>
